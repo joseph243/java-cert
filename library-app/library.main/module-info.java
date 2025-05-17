@@ -1,6 +1,6 @@
-module com.javacert.librarymain{
+module library.main{
 
-} > module-info.java
+}
 
 
 
