@@ -20,5 +20,5 @@ test {
 }
 
 application {
-    mainClassName= 'com.library.Main'
+    mainClass= 'com.library.Main'
 }
