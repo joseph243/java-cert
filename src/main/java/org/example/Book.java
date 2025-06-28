@@ -6,6 +6,19 @@ public class Book {
     private String ISBN = "";
     private int year = 0;
 
+    public Book()
+    {
+        //empty constructor.
+    }
+
+    public Book(String inTitle, String inAuthor, String inISBN, int inYear)
+    {
+        this.title = inTitle;
+        this.author = inAuthor;
+        this.ISBN = inISBN;
+        this.year = inYear;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -54,5 +67,11 @@ public class Book {
         {
             return true;
         }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Book " + this.title + " by " + this.author + " ISBN: " + this.getISBN();
     }
 }

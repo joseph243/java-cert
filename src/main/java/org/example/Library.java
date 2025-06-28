@@ -16,5 +16,9 @@ public class Library {
     public void removeBook(Book book) {
         books.removeIf(book::equals);
     }
+
+    public ArrayList<Book> getAllBooks() {
+        return books;
+    }
 }
 
