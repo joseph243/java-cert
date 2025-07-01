@@ -9,6 +9,7 @@ public class Main {
         String LIST = "list";
         String ADD_BOOK = "add";
         String FAKE_DATA = "fake";
+        String REMOVE_BOOK = "remove";
 
         boolean running = true;
         System.out.println("===WELCOME TO JOSEPH LIBRARY===");
@@ -21,15 +22,29 @@ public class Main {
             String input = scanner.nextLine();
             libraryWait();
 
+            if (input.equals(REMOVE_BOOK))
+            {
+                System.out.println(">>>Remove Book by Title: ");
+                System.out.print(">>>");
+                String inputToRemove = scanner.nextLine();
+                for (Book b : library.getAllBooks())
+                {
+                    if (b.getTitle().equalsIgnoreCase(inputToRemove))
+                    {
+                        library.removeBook(b);
+                        break;
+                    }
+                }
+            }
             if (input.equals(ADD_BOOK))
             {
-                System.out.println("adding a book...");
+                System.out.println(">>>Add a book:");
                 Book book = new Book();
-                System.out.print("enter title: ");
+                System.out.print(">>>enter title: ");
                 book.setTitle(scanner.nextLine());
-                System.out.print("enter author: ");
+                System.out.print(">>>enter author: ");
                 book.setAuthor(scanner.nextLine());
-                System.out.print("enter year: ");
+                System.out.print(">>>enter year: ");
                 String year = scanner.nextLine();
                 try
                 {
@@ -38,6 +53,8 @@ public class Main {
                 catch (NumberFormatException e)
                 {
                     System.out.println("INPUT YEAR WAS NOT DIGITS.  YOU IDIOT!!");
+                    System.out.println("Using zero.");
+                    book.setYear(0);
                 }
                 System.out.print("enter ISBN: ");
                 book.setISBN(scanner.nextLine());
@@ -87,7 +104,7 @@ public class Main {
     {
         try
         {
-            Thread.sleep(500);
+            Thread.sleep(250);
         }
         catch (Exception e)
         {
