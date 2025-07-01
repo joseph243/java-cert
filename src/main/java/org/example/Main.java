@@ -14,10 +14,10 @@ public class Main {
         boolean running = true;
         System.out.println("===WELCOME TO JOSEPH LIBRARY===");
         Library library = new Library();
+        Scanner scanner = new Scanner(System.in);
 
         while (running)
         {
-            Scanner scanner = new Scanner(System.in);
             System.out.print("enter your command: ");
             String input = scanner.nextLine();
             libraryWait();
@@ -98,6 +98,7 @@ public class Main {
                 running = false;
             }
         }
+        scanner.close();
     }
 
     public static void libraryWait()
