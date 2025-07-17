@@ -46,7 +46,7 @@ public class Main {
                     try {
                         book.setYear(Integer.parseInt(year));
                     } catch (NumberFormatException e) {
-                        System.out.println("INPUT YEAR WAS NOT DIGITS.  YOU IDIOT!!");
+                        System.out.println("Input year was not digits. Please be more careful.");
                         System.out.println("Using zero.");
                         book.setYear(0);
                     }
@@ -77,9 +77,15 @@ public class Main {
                     System.out.println("quit, exit, q: Quit Library");
                     break;
                 case LIST:
-                    System.out.println("Listing books:");
-                    for (Book b : library.getAllBooks()) {
-                        System.out.println(b.toString());
+                    if (library.getAllBooks().size() == 0)
+                    {
+                        System.out.println("There are no books added yet.");
+                    }
+                    else {
+                        System.out.println("Listing " + library.getAllBooks().size() + " books:");
+                        for (Book b : library.getAllBooks()) {
+                            System.out.println(b.toString());
+                        }
                     }
                     break;
                 case SEARCH:
